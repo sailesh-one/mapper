@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Restaurants Map - Light Mode</title>
+    <title>Restaurants Map - Modern Light</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -12,6 +12,7 @@
       }
       body {
         margin: 0;
+        background-color: #f4f4f4;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       }
     </style>
@@ -20,10 +21,10 @@
     <div id="map"></div>
     <script>
       // Initialize map
-      const map = L.map('map').setView([21.1466, 79.0888], 5); // Central India
+      const map = L.map('map').setView([21.1466, 79.0888], 5); // India center
 
-      // 🌞 Light modern tile style
-      L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      // 🍂 Softer modern light tile style (Positron)
+      L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; OpenStreetMap & CartoDB',
         subdomains: 'abcd',
         maxZoom: 19
@@ -37,7 +38,6 @@
         popupAnchor: [0, -32]
       });
 
-      // Restaurant locations
       const locations = [
         { name: "Indian Accent, Delhi", lat: 28.6270, lng: 77.2167 },
         { name: "Bukhara, Delhi", lat: 28.5921, lng: 77.1758 },
@@ -53,7 +53,6 @@
         { name: "Jewel of Nizam, Hyderabad", lat: 17.3833, lng: 78.4011 }
       ];
 
-      // Add markers to the map
       locations.forEach(loc => {
         L.marker([loc.lat, loc.lng], { icon: restaurantIcon }).addTo(map)
           .bindPopup(`<b>${loc.name}</b>`);
