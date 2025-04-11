@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Free Map</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <style>#map { height: 100vh; }</style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      const map = L.map('map').setView([20.5937, 78.9629], 5); // Center on India
+
+      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '© OpenStreetMap contributors'
+      }).addTo(map);
+
+      // Example markers - dynamically replace with DB data
+      const locations = [
+        { name: "Delhi", lat: 28.7041, lng: 77.1025 },
+        { name: "Bangalore", lat: 12.9716, lng: 77.5946 },
+      ];
+
+      locations.forEach(loc => {
+        L.marker([loc.lat, loc.lng]).addTo(map)
+          .bindPopup(loc.name)
+          .openPopup();
+      });
+    </script>
+  </body>
+</html>
