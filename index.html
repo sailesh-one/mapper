@@ -11,45 +11,107 @@
       margin: 0;
       background: #1e1e1e;
       font-family: 'Segoe UI', sans-serif;
-    }
-    #map {
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       height: 100vh;
+    }
+
+    section {
+      width: 80%;
+      height: 500px;
+      border: 2px solid #2ecc71;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
+    }
+
+    #map {
       width: 100%;
+      height: 100%;
     }
   </style>
 </head>
 <body>
-  <div id="map"></div>
+  <section>
+    <div id="map"></div>
+  </section>
+
   <script>
     const map = L.map('map').setView([21.1466, 79.0888], 5); // Center India
 
-    // 🗺️ Dark greenish theme from OpenStreetMap (CartoDB Dark Matter)
+    // 🗺️ Tile layer
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       maxZoom: 19
     }).addTo(map);
 
-    // 🍽️ Restaurant icon
+    // 🍽️ Custom icon
     const restaurantIcon = L.icon({
-      iconUrl: 'https://cdn-icons-png.flaticon.com/512/3075/3075977.png',
+      iconUrl: 'https://liftadz.com/html/images/liftadz-logo-loader.png',
       iconSize: [32, 32],
       iconAnchor: [16, 32],
       popupAnchor: [0, -32]
     });
 
-    const locations = [
-      { name: "Karavalli, Bangalore", lat: 12.9716, lng: 77.5946 },
-      { name: "Truffles, Bangalore", lat: 12.9352, lng: 77.6146 },
-      { name: "Toscano, Chennai", lat: 13.0827, lng: 80.2707 },
-      { name: "Amethyst, Chennai", lat: 13.0610, lng: 80.2518 },
-      { name: "Spice Garden, Hyderabad", lat: 17.3850, lng: 78.4867 },
-      { name: "Jewel of Nizam, Hyderabad", lat: 17.3833, lng: 78.4011 }
-    ];
+   const locations = [
+  {
+    name: "Karavalli, Bangalore",
+    lat: 12.9716,
+    lng: 77.5946,
+    description: "Coastal cuisine in a heritage setting.",
+    link: "https://www.thegatewayhotels.com/karavalli-bangalore"
+  },
+  {
+    name: "Truffles, Bangalore",
+    lat: 12.9352,
+    lng: 77.6146,
+    description: "Popular for burgers, shakes & casual bites.",
+    link: "https://truffles.co.in"
+  },
+  {
+    name: "Toscano, Chennai",
+    lat: 13.0827,
+    lng: 80.2707,
+    description: "Elegant Italian dining experience.",
+    link: "https://www.toscano.restaurant"
+  },
+  {
+    name: "Amethyst, Chennai",
+    lat: 13.0610,
+    lng: 80.2518,
+    description: "Boutique café in a charming colonial bungalow.",
+    link: "https://www.amethystchennai.com"
+  },
+  {
+    name: "Spice Garden, Hyderabad",
+    lat: 17.3850,
+    lng: 78.4867,
+    description: "Authentic Andhra flavors with a modern twist.",
+    link: "https://www.spicegarden.in"
+  },
+  {
+    name: "Jewel of Nizam, Hyderabad",
+    lat: 17.3833,
+    lng: 78.4011,
+    description: "Fine-dining experience in a regal setting.",
+    link: "https://www.jewelofnizam.com"
+  }
+];
 
-    locations.forEach(loc => {
-      L.marker([loc.lat, loc.lng], { icon: restaurantIcon }).addTo(map)
-        .bindPopup(`<b>${loc.name}</b>`);
-    });
+locations.forEach(loc => {
+  const popupContent = `
+    <b>${loc.name}</b><br>
+    <small>${loc.description}</small><br>
+    <a href="${loc.link}" target="_blank" style="color:#2ecc71;">Visit Website</a>
+  `;
+
+  L.marker([loc.lat, loc.lng], { icon: restaurantIcon })
+    .addTo(map)
+    .bindPopup(popupContent);
+});
+
   </script>
 </body>
 </html>
