@@ -64,20 +64,20 @@
   <script>
     const map = L.map('map').setView([16.9891, 82.2475], 13); // Centered on Kakinada
     
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
   attribution: '&copy; <a href="https://carto.com/">CARTO</a> contributors',
   subdomains: 'abcd',
   maxZoom: 19
 }).addTo(map);
 
-// Add dotted circle boundary around Kakinada
-const boundary = L.circle([16.9891, 82.2475], {
-  radius: 5000, // in meters (~5km radius)
-  color: '#2ecc71',
-  weight: 2,
-  fillOpacity: 0,
-  dashArray: '5, 10' // Dotted/dashed line
-}).addTo(map);
+// // Add dotted circle boundary around Kakinada
+// const boundary = L.circle([16.9891, 82.2475], {
+//   radius: 5000, // in meters (~5km radius)
+//   color: '#2ecc71',
+//   weight: 2,
+//   fillOpacity: 0,
+//   dashArray: '5, 10' // Dotted/dashed line
+// }).addTo(map);
 
 
     const restaurantIcon = L.icon({
