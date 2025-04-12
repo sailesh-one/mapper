@@ -70,6 +70,14 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
   maxZoom: 19
 }).addTo(map);
 
+// Add dotted circle boundary around Kakinada
+const boundary = L.circle([16.9891, 82.2475], {
+  radius: 5000, // in meters (~5km radius)
+  color: '#2ecc71',
+  weight: 2,
+  fillOpacity: 0,
+  dashArray: '5, 10' // Dotted/dashed line
+}).addTo(map);
 
 
     const restaurantIcon = L.icon({
