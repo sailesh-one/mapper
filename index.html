@@ -64,11 +64,12 @@
   <script>
     const map = L.map('map').setView([16.9891, 82.2475], 13); // Centered on Kakinada
     
- L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
   attribution: '&copy; <a href="https://carto.com/">CARTO</a> contributors',
   subdomains: 'abcd',
   maxZoom: 19
 }).addTo(map);
+
 
 
     const restaurantIcon = L.icon({
