@@ -4,12 +4,12 @@
   <title>LiftAdz - Restaurant Map</title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
   <style>
     body {
       margin: 0;
-      background: #1e1e1e;
+      background: #ffffff;
       font-family: 'Segoe UI', sans-serif;
       color: #ffffff;
     }
@@ -21,7 +21,7 @@
 
     header h1 {
       font-size: 3rem;
-      color: #2ecc71;
+      color: #C41E3A;
       margin: 0;
     }
 
@@ -30,7 +30,7 @@
       max-width: 1000px;
       height: 500px;
       margin: 30px auto;
-      border: 2px solid #2ecc71;
+      border: 2px solid #d4dadc;
       border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 0 15px rgba(46, 204, 113, 0.4);
@@ -68,16 +68,6 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
   subdomains: 'abcd',
   maxZoom: 19
 }).addTo(map);
-
-// // Add dotted circle boundary around Kakinada
-// const boundary = L.circle([16.9891, 82.2475], {
-//   radius: 5000, // in meters (~5km radius)
-//   color: '#2ecc71',
-//   weight: 2,
-//   fillOpacity: 0,
-//   dashArray: '5, 10' // Dotted/dashed line
-// }).addTo(map);
-
 
     const restaurantIcon = L.icon({
       iconUrl: 'https://liftadz.com/html/images/liftadz-logo-loader.png',
